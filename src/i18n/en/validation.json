@@ -1,0 +1,5 @@
+{
+  "EMAIL_NOT_FORMATTED": "The email address is not formatted correctly.",
+  "EMAIL_ALREADY_EXISTS": "The email address is already in use.",
+  "PHONE_ALREADY_EXISTS": "The phone number is already in use."
+}

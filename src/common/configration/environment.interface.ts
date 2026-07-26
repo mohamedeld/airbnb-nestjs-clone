@@ -1,3 +1,5 @@
 export interface IEnvironment {
   port: number;
+  fullbackLang: string;
+  mongoUri: string;
 }
