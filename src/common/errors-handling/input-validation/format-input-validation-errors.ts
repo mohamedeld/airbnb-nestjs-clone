@@ -17,8 +17,7 @@ export function formatInputValidationErrors(
   i18n: I18nService,
   host: ArgumentsHost,
 ): IErrorResponse[] {
-  const lang = I18nContext.current(host)?.lang ?? 'en';
-
+  const lang = I18nContext.current(host)?.lang;
   return errors.flatMap((error) => {
     const constraints = error.constraints ?? {};
 

@@ -8,6 +8,6 @@ export class CustomI18nService {
   translate(key: string, options?: any): string {
     const lang = I18nContext.current()?.lang;
 
-    return this.i18n.t(key, { lang, ...options });
+    return this.i18n.t(key, { lang: lang, ...options });
   }
 }

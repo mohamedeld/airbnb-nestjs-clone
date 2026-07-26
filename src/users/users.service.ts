@@ -18,11 +18,6 @@ export class UsersService {
       email: body?.email,
     });
     if (existingEmailUser) {
-      const message = this.customI18n.translate(
-        'validation.EMAIL_ALREADY_EXISTS',
-      );
-
-      console.log(message);
       throw new BadRequestException(
         this.customI18n.translate('validation.EMAIL_ALREADY_EXISTS'),
       );
@@ -31,11 +26,6 @@ export class UsersService {
       phoneNumber: body?.phoneNumber,
     });
     if (existingPhoneUser) {
-      const message = this.customI18n.translate(
-        'validation.EMAIL_ALREADY_EXISTS',
-      );
-
-      console.log(message);
       throw new BadRequestException(
         this.customI18n.translate('validation.PHONE_ALREADY_EXISTS'),
       );

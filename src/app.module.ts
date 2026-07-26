@@ -32,12 +32,12 @@ import { AuthModule } from './auth/auth.module';
           path: path.join(__dirname, '/i18n/'),
           watch: true,
         },
-        resolvers: [
-          { use: QueryResolver, options: ['lang'] },
-          AcceptLanguageResolver,
-          new HeaderResolver(['x-lang']),
-        ],
       }),
+      resolvers: [
+        { use: QueryResolver, options: ['lang'] },
+        AcceptLanguageResolver,
+        new HeaderResolver(['x-lang']),
+      ],
       inject: [ConfigService],
     }),
     ConfigModule.forRoot({
