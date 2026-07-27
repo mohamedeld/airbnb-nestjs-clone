@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schemas/user.schema';
-import { Model } from 'mongoose';
+import { Model, QueryFilter } from 'mongoose';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { BadRequestException } from 'src/common/errors-handling/custom-exceptions/bad-request-exception';
 import { CustomI18nService } from 'src/i18n/custom-i18n.service';
@@ -31,9 +31,12 @@ export class UsersService {
       );
     }
     const hashPassword = await bcrypt.hash(body.password, 10);
-    await this.userModel.create({
+    return await this.userModel.create({
       ...body,
       password: hashPassword,
     });
+  }
+  async findOne(query: QueryFilter<User>) {
+    return await this.userModel.findOne(query);
   }
 }

@@ -19,6 +19,11 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validationSchema: envSchema,
+      load: [configMapping],
+    }),
     MongooseModule.forRootAsync({
       useFactory: (configService: ConfigService<IEnvironment>) => ({
         uri: configService.getOrThrow<string>('mongoUri'),
@@ -40,11 +45,7 @@ import { AuthModule } from './auth/auth.module';
       ],
       inject: [ConfigService],
     }),
-    ConfigModule.forRoot({
-      isGlobal: true,
-      validationSchema: envSchema,
-      load: [configMapping],
-    }),
+
     UsersModule,
     AuthModule,
   ],
