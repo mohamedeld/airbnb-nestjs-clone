@@ -6,4 +6,5 @@ export const defaultEnv = (): IEnvironment => ({
   mongoUri: process.env.MONGO_URI as string,
   jwtSecret: process.env.JWT_SECRET as string,
   accessTokenExpiration: process.env.ACCESS_TOKEN_EXPIRATION as string,
+  refreshTokenExpiration: process.env.REFRESH_TOKEN_EXPIRATION as string,
 });

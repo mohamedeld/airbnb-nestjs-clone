@@ -3,5 +3,6 @@
   "EMAIL_ALREADY_EXISTS": "عنوان البريد الإلكتروني مستخدم بالفعل.",
   "PHONE_ALREADY_EXISTS": "رقم الهاتف مستخدم بالفعل.",
   "USER_NOT_FOUND": "المستخدم غير موجود",
-  "INVALID_CREDENTIALS": "بيانات الاعتماد غير صالحة"
+  "INVALID_CREDENTIALS": "بيانات الاعتماد غير صالحة",
+  "INVALID_REFRESH_TOKEN": " رمز التحديث المقدم غير صالح."
 }

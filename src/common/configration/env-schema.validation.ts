@@ -7,4 +7,5 @@ export const envSchema = Joi.object({
   MONGO_URI: Joi.string().required(),
   JWT_SECRET: Joi.string().required(),
   ACCESS_TOKEN_EXPIRATION: Joi.string().default('7d'),
+  REFRESH_TOKEN_EXPIRATION: Joi.string().default('7d'),
 });

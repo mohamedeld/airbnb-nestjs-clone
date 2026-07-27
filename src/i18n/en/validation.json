@@ -3,5 +3,6 @@
   "EMAIL_ALREADY_EXISTS": "The email address is already in use.",
   "PHONE_ALREADY_EXISTS": "The phone number is already in use.",
   "USER_NOT_FOUND": "User not found.",
-  "INVALID_CREDENTIALS": "Invalid credentials."
+  "INVALID_CREDENTIALS": "Invalid credentials.",
+  "INVALID_REFRESH_TOKEN": "The provided refresh token is invalid."
 }
