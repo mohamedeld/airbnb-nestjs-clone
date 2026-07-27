@@ -7,6 +7,8 @@ import { GenerateTokenUseCase } from './generate-token.usecase';
 import { NotFoundException } from 'src/common/errors-handling/custom-exceptions/not-found-exception';
 import { CustomI18nService } from 'src/i18n/custom-i18n.service';
 import { Injectable } from '@nestjs/common';
+import { ResopnseUserDto } from 'src/users/dtos/user-response.dto';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class LoginUseCase {
@@ -16,7 +18,7 @@ export class LoginUseCase {
     private readonly customI18n: CustomI18nService,
   ) {}
 
-  async execute(body: LoginDto) {
+  async execute(body: LoginDto): Promise<ResopnseUserDto> {
     const existUser = await this.userService.findOne({ email: body?.email });
     if (!existUser) {
       throw new NotFoundException(
@@ -32,6 +34,11 @@ export class LoginUseCase {
         this.customI18n.translate('validation.INVALID_CREDENTIALS'),
       );
     }
-    return await this.generateTokens.execute(existUser?._id?.toString());
+    const token = await this.generateTokens.execute(existUser?._id?.toString());
+    const plainedUser = plainToInstance(ResopnseUserDto, existUser.toObject());
+    return {
+      ...plainedUser,
+      ...token,
+    };
   }
 }

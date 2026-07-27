@@ -16,7 +16,6 @@ import { CustomExceptionFilter } from './common/errors-handling/custom-exception
 import { IEnvironment } from './common/configration/environment.interface';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { CreateUserUseCase } from './users/use-cases/create-user.usecase';
 
 @Module({
   imports: [

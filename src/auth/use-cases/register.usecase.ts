@@ -12,9 +12,7 @@ export class RegisterUseCase {
 
   async execute(body: RegisterDto) {
     const createdUser = await this.userService.createUser(body);
-    const token = await this.generateToken.execute(
-      createdUser?._id?.toString(),
-    );
-    return { ...token };
+    const token = await this.generateToken.execute(createdUser?.id?.toString());
+    return { ...createdUser, ...token };
   }
 }
