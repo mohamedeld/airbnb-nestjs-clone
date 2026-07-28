@@ -11,11 +11,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { envSchema } from './common/configration/env-schema.validation';
 import configMapping from './common/configration/configMapping';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { CustomExceptionFilter } from './common/errors-handling/custom-exception.filter';
 import { IEnvironment } from './common/configration/environment.interface';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { LoggerInterceptor } from './common/interceptors/logger.interceptor';
 
 @Module({
   imports: [
@@ -54,6 +55,10 @@ import { AuthModule } from './auth/auth.module';
     {
       provide: APP_FILTER,
       useClass: CustomExceptionFilter,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggerInterceptor,
     },
   ],
 })

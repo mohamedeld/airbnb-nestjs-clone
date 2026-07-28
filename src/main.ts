@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
-import { IEnvironment } from './common/configration/environment.interface';
 import { Logger } from '@nestjs/common';
 import { I18nValidationPipe } from 'nestjs-i18n';
-
+import { IEnvironment } from './common/configration/environment.interface';
+import { SwaggerConfig } from './common/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -22,6 +22,9 @@ async function bootstrap() {
   // );
 
   const configService = app.get(ConfigService<IEnvironment>);
+
+  // swagger setup
+  SwaggerConfig.setup(app);
 
   const PORT = configService.getOrThrow<number>('port');
   await app.listen(PORT);
