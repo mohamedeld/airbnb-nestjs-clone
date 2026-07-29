@@ -19,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
 import { LoggerInterceptor } from './common/interceptors/logger.interceptor';
 import { CountriesModule } from './countries/countries.module';
 import { CitiesModule } from './cities/cities.module';
+import { CurrenciesModule } from './currencies/currencies.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { CitiesModule } from './cities/cities.module';
     AuthModule,
     CountriesModule,
     CitiesModule,
+    CurrenciesModule,
   ],
   controllers: [],
   providers: [

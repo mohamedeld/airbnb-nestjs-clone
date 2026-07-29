@@ -10,5 +10,7 @@
   "INVALID_ID": "The provided ID is invalid.",
   "REQUIRED_ID": " The ID field is required.",
   "CITY_EXIST": "City is already exist",
-  "CITY_NOT_FOUND": "City not found"
+  "CITY_NOT_FOUND": "City not found",
+  "CURRENCY_EXIST": "Currency is already exist",
+  "CURRENCY_NOT_FOUND": "Currency not found"
 }
