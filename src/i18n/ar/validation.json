@@ -4,5 +4,9 @@
   "PHONE_ALREADY_EXISTS": "رقم الهاتف مستخدم بالفعل.",
   "USER_NOT_FOUND": "المستخدم غير موجود",
   "INVALID_CREDENTIALS": "بيانات الاعتماد غير صالحة",
-  "INVALID_REFRESH_TOKEN": " رمز التحديث المقدم غير صالح."
+  "INVALID_REFRESH_TOKEN": " رمز التحديث المقدم غير صالح.",
+  "COUNTRY_EXIST": "الدولة موجودة بالفعل",
+  "COUNTRY_NOT_FOUND": " الدولة غير موجودة",
+  "INVALID_ID": "المعرف المقدم غير صالح.",
+  "REQUIRED_ID": " حقل المعرف مطلوب."
 }

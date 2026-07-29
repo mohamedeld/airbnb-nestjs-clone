@@ -4,5 +4,9 @@
   "PHONE_ALREADY_EXISTS": "The phone number is already in use.",
   "USER_NOT_FOUND": "User not found.",
   "INVALID_CREDENTIALS": "Invalid credentials.",
-  "INVALID_REFRESH_TOKEN": "The provided refresh token is invalid."
+  "INVALID_REFRESH_TOKEN": "The provided refresh token is invalid.",
+  "COUNTRY_EXIST": "Country is already exist",
+  "COUNTRY_NOT_FOUND": "Country not found",
+  "INVALID_ID": "The provided ID is invalid.",
+  "REQUIRED_ID": " The ID field is required."
 }

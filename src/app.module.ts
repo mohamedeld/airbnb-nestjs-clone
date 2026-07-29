@@ -17,6 +17,8 @@ import { IEnvironment } from './common/configration/environment.interface';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { LoggerInterceptor } from './common/interceptors/logger.interceptor';
+import { CountriesModule } from './countries/countries.module';
+import { CitiesModule } from './cities/cities.module';
 
 @Module({
   imports: [
@@ -49,6 +51,8 @@ import { LoggerInterceptor } from './common/interceptors/logger.interceptor';
 
     UsersModule,
     AuthModule,
+    CountriesModule,
+    CitiesModule,
   ],
   controllers: [],
   providers: [

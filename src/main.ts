@@ -1,12 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
-import { Logger } from '@nestjs/common';
+import { ConsoleLogger, Logger } from '@nestjs/common';
 import { I18nValidationPipe } from 'nestjs-i18n';
 import { IEnvironment } from './common/configration/environment.interface';
 import { SwaggerConfig } from './common/swagger';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: new ConsoleLogger({
+      json: process.env.NODE_ENV === 'production',
+    }),
+  });
 
   app.useGlobalPipes(
     new I18nValidationPipe({
