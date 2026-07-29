@@ -27,5 +27,6 @@ import { CountryRepository } from './repository/country.repository';
     CountryRepository,
   ],
   controllers: [CountriesController],
+  exports: [CountriesService],
 })
 export class CountriesModule {}

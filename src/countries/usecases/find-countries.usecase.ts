@@ -3,7 +3,7 @@ import { Country } from '../schema/country.schema';
 import { CountryResponseDto } from '../dtos/country-response.dto';
 import { plainToInstance } from 'class-transformer';
 import { FindAllCountriesDto } from '../dtos/final-all-countries.dto';
-import { HydratedDocument, QueryFilter } from 'mongoose';
+import { QueryFilter } from 'mongoose';
 import { CountryRepository } from '../repository/country.repository';
 import { PaginatedResult } from 'src/common/data-access';
 
@@ -29,17 +29,6 @@ export class GetCountriesUseCase {
       page,
       limit,
     });
-    const countries = plainToInstance(
-      CountryResponseDto,
-      result?.data?.map((country: HydratedDocument<Country>) =>
-        country.toObject(),
-      ),
-    );
-    return new PaginatedResult(
-      countries,
-      result?.totalCount,
-      result?.page,
-      result?.limit,
-    );
+    return plainToInstance(PaginatedResult<CountryResponseDto>, result);
   }
 }

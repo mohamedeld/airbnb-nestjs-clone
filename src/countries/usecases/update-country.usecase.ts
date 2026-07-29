@@ -43,9 +43,6 @@ export class UpdateCountryUseCase {
     const updatedCountry = await this.countryRepository.findByIdAndUpdate(
       id,
       body,
-      {
-        new: true,
-      },
     );
     return plainToInstance(CountryResponseDto, updatedCountry?.toObject());
   }

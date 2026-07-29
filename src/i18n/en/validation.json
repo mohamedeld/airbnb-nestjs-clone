@@ -8,5 +8,7 @@
   "COUNTRY_EXIST": "Country is already exist",
   "COUNTRY_NOT_FOUND": "Country not found",
   "INVALID_ID": "The provided ID is invalid.",
-  "REQUIRED_ID": " The ID field is required."
+  "REQUIRED_ID": " The ID field is required.",
+  "CITY_EXIST": "City is already exist",
+  "CITY_NOT_FOUND": "City not found"
 }
