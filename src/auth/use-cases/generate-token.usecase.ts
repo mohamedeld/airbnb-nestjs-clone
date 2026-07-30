@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs';
 import { RefreshToken } from '../schemas/refresh-token.schema';
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
+import { JwtPayload } from '../interfaces/jwt-payload.interface';
 
 @Injectable()
 export class GenerateTokenUseCase {
@@ -14,13 +15,15 @@ export class GenerateTokenUseCase {
     @InjectModel(RefreshToken.name)
     private refreshTokenModel: Model<RefreshToken>,
   ) {}
-  async execute(userId: string) {
-    const payload = { sub: userId };
+  async execute(payload: JwtPayload) {
+    const { id: userId, role } = payload;
 
-    const accessToken = await this.jwtService.signAsync(payload);
+    const jwtPayload = { sub: userId, role };
+    const accessToken = await this.jwtService.signAsync(jwtPayload);
     const refreshToken = await this.jwtService.signAsync(
       {
         userId,
+        role: role,
         type: 'refresh',
       },
       {

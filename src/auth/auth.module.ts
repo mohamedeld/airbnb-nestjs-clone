@@ -50,5 +50,6 @@ import { SystemAdminsModule } from 'src/system-admins/system-admins.module';
     LoginAsSystemAdminUseCase,
   ],
   controllers: [AuthController],
+  exports: [JwtModule, UsersModule, SystemAdminsModule],
 })
 export class AuthModule {}

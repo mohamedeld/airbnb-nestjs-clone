@@ -11,7 +11,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { envSchema } from './common/configration/env-schema.validation';
 import configMapping from './common/configration/configMapping';
-import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { CustomExceptionFilter } from './common/errors-handling/custom-exception.filter';
 import { IEnvironment } from './common/configration/environment.interface';
 import { UsersModule } from './users/users.module';
@@ -23,6 +23,8 @@ import { CurrenciesModule } from './currencies/currencies.module';
 import { UnitCategoriesModule } from './unit-categories/unit-categories.module';
 import { AppSettingsModule } from './app-settings/app-settings.module';
 import { SystemAdminsModule } from './system-admins/system-admins.module';
+import { AuthGuard } from './auth/guards/auth.guard.guard';
+import { CustomI18nService } from './i18n/custom-i18n.service';
 
 @Module({
   imports: [
@@ -64,6 +66,7 @@ import { SystemAdminsModule } from './system-admins/system-admins.module';
   ],
   controllers: [],
   providers: [
+    CustomI18nService,
     {
       provide: APP_FILTER,
       useClass: CustomExceptionFilter,
@@ -71,6 +74,10 @@ import { SystemAdminsModule } from './system-admins/system-admins.module';
     {
       provide: APP_INTERCEPTOR,
       useClass: LoggerInterceptor,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
     },
   ],
 })

@@ -5,6 +5,7 @@ import { SystemAdminLResponseDto } from '../dtos/system-admin-reponse.dto';
 import { BadRequestException } from 'src/common/errors-handling/custom-exceptions/bad-request-exception';
 import { QueryFilter } from 'mongoose';
 import { SystemAdmin } from '../schema/system-admin.schema';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class FindOneSystemAdminUseCase {
@@ -24,6 +25,6 @@ export class FindOneSystemAdminUseCase {
         ),
       );
     }
-    return systemAdmin;
+    return plainToInstance(SystemAdminLResponseDto, systemAdmin);
   }
 }

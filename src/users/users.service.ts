@@ -6,6 +6,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { CustomI18nService } from 'src/i18n/custom-i18n.service';
 import { CreateUserUseCase } from './use-cases/create-user.usecase';
 import { ResopnseUserDto } from './dtos/user-response.dto';
+import { plainToInstance } from 'class-transformer';
 @Injectable()
 export class UsersService {
   constructor(
@@ -17,7 +18,9 @@ export class UsersService {
   async createUser(body: CreateUserDto): Promise<ResopnseUserDto> {
     return this.createUserUseCase.execute(body);
   }
-  async findOne(query: QueryFilter<User>) {
-    return await this.userModel.findOne(query);
+
+  async findOne(query: QueryFilter<User>): Promise<ResopnseUserDto> {
+    const user = await this.userModel.findOne(query);
+    return plainToInstance(ResopnseUserDto, user?.toObject());
   }
 }

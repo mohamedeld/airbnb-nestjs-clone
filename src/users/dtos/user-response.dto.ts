@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import { Roles } from 'src/common/constants';
 
 export class ResopnseUserDto {
   @Expose({ name: '_id' })
@@ -13,9 +14,15 @@ export class ResopnseUserDto {
   @Expose()
   phoneNumber: string;
 
-  @Exclude()
+  @Expose()
+  role: (typeof Roles)[keyof typeof Roles];
+
+  @Expose()
   password: string;
 
   @Exclude()
   __v: number;
+
+  @Exclude()
+  isDeleted: boolean;
 }

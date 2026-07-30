@@ -34,8 +34,11 @@ export class LoginAsUserUseCase {
         this.customI18n.translate('validation.INVALID_CREDENTIALS'),
       );
     }
-    const token = await this.generateTokens.execute(existUser?._id?.toString());
-    const plainedUser = plainToInstance(ResopnseUserDto, existUser.toObject());
+    const token = await this.generateTokens.execute({
+      id: existUser?.id?.toString(),
+      role: body?.role,
+    });
+    const plainedUser = plainToInstance(ResopnseUserDto, existUser);
     return {
       ...plainedUser,
       ...token,

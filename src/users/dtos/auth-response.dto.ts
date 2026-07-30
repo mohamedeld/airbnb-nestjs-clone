@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Roles } from 'src/common/constants';
 
 export class AuthResponseDto {
   @ApiProperty({

@@ -11,6 +11,7 @@ import { GenerateTokenUseCase } from './generate-token.usecase';
 import { BadRequestException } from 'src/common/errors-handling/custom-exceptions/bad-request-exception';
 import { ForbiddenException } from 'src/common/errors-handling/custom-exceptions/forbidden-exception';
 import { CustomI18nService } from 'src/i18n/custom-i18n.service';
+import { Roles } from 'src/common/constants';
 
 type RefreshTokenPayload = {
   userId: string;
@@ -71,7 +72,10 @@ export class RefreshTokenUseCase {
       );
     }
 
-    // Rotate tokens
-    return this.generateTokens.execute(storedToken.userId);
+    // Rotate token
+    return this.generateTokens.execute({
+      id: storedToken.userId,
+      role: Roles.USER,
+    });
   }
 }

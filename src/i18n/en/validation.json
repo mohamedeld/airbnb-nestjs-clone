@@ -16,5 +16,6 @@
   "UnitCategories_NOT_FOUND": "UnitCategories not found",
   "UnitCategories_EXIST": "UnitCategories is already exist",
   "SYSTEM_ADMIN_NOT_FOUND": "System admin not found",
-  "INVALID_SYSTEM_ADMIN_CREDENTIALS": "Invalid system admin credentials"
+  "INVALID_SYSTEM_ADMIN_CREDENTIALS": "Invalid system admin credentials",
+  "INVALID_TOKEN": "Invalid token"
 }

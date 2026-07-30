@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Roles } from '../../common/constants';
 export class LoginDto {
@@ -24,6 +24,5 @@ export class LoginDto {
     example: Roles.USER,
   })
   @IsNotEmpty()
-  @IsEnum(Roles)
   role: (typeof Roles)[keyof typeof Roles];
 }

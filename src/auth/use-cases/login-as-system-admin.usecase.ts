@@ -36,7 +36,10 @@ export class LoginAsSystemAdminUseCase {
         this.customI18n.translate('validation.INVALID_CREDENTIALS'),
       );
     }
-    const token = await this.generateTokens.execute(existUser?.id?.toString());
+    const token = await this.generateTokens.execute({
+      id: existUser?.id?.toString(),
+      role: body?.role,
+    });
     const plainedUser = plainToInstance(ResopnseUserDto, existUser);
     return {
       ...plainedUser,
