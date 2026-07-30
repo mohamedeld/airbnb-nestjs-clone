@@ -12,5 +12,9 @@
   "CITY_EXIST": "City is already exist",
   "CITY_NOT_FOUND": "City not found",
   "CURRENCY_EXIST": "Currency is already exist",
-  "CURRENCY_NOT_FOUND": "Currency not found"
+  "CURRENCY_NOT_FOUND": "Currency not found",
+  "UnitCategories_NOT_FOUND": "UnitCategories not found",
+  "UnitCategories_EXIST": "UnitCategories is already exist",
+  "SYSTEM_ADMIN_NOT_FOUND": "System admin not found",
+  "INVALID_SYSTEM_ADMIN_CREDENTIALS": "Invalid system admin credentials"
 }

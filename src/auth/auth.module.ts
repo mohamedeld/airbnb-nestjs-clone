@@ -15,6 +15,9 @@ import { RegisterUseCase } from './use-cases/register.usecase';
 import { GenerateTokenUseCase } from './use-cases/generate-token.usecase';
 import { LoginUseCase } from './use-cases/login.usecase';
 import { RefreshTokenUseCase } from './use-cases/refresh-token.usecase';
+import { LoginAsUserUseCase } from './use-cases/login-as-user.usecase';
+import { LoginAsSystemAdminUseCase } from './use-cases/login-as-system-admin.usecase';
+import { SystemAdminsModule } from 'src/system-admins/system-admins.module';
 
 @Module({
   imports: [
@@ -34,6 +37,7 @@ import { RefreshTokenUseCase } from './use-cases/refresh-token.usecase';
     MongooseModule.forFeature([
       { name: RefreshToken.name, schema: RefreshTokenSchema },
     ]),
+    SystemAdminsModule,
   ],
   providers: [
     AuthService,
@@ -42,6 +46,8 @@ import { RefreshTokenUseCase } from './use-cases/refresh-token.usecase';
     GenerateTokenUseCase,
     LoginUseCase,
     RefreshTokenUseCase,
+    LoginAsUserUseCase,
+    LoginAsSystemAdminUseCase,
   ],
   controllers: [AuthController],
 })

@@ -12,5 +12,9 @@
   "CITY_EXIST": "المدينة موجودة بالفعل",
   "CITY_NOT_FOUND": "المدينة غير موجودة",
   "CURRENCY_EXIST": "العملة موجودة بالفعل",
-  "CURRENCY_NOT_FOUND": "العملة غير موجودة"
+  "CURRENCY_NOT_FOUND": "العملة غير موجودة",
+  "UnitCategories_NOT_FOUND": "فئات الوحدات غير موجودة",
+  "UnitCategories_EXIST": "فئات الوحدات موجودة بالفعل",
+  "SYSTEM_ADMIN_NOT_FOUND": "مسؤول النظام غير موجود",
+  "INVALID_SYSTEM_ADMIN_CREDENTIALS": "بيانات اعتماد مسؤول النظام غير صالحة"
 }

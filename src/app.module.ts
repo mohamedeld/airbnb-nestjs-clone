@@ -20,6 +20,9 @@ import { LoggerInterceptor } from './common/interceptors/logger.interceptor';
 import { CountriesModule } from './countries/countries.module';
 import { CitiesModule } from './cities/cities.module';
 import { CurrenciesModule } from './currencies/currencies.module';
+import { UnitCategoriesModule } from './unit-categories/unit-categories.module';
+import { AppSettingsModule } from './app-settings/app-settings.module';
+import { SystemAdminsModule } from './system-admins/system-admins.module';
 
 @Module({
   imports: [
@@ -55,6 +58,9 @@ import { CurrenciesModule } from './currencies/currencies.module';
     CountriesModule,
     CitiesModule,
     CurrenciesModule,
+    UnitCategoriesModule,
+    AppSettingsModule,
+    SystemAdminsModule,
   ],
   controllers: [],
   providers: [

@@ -5,4 +5,11 @@ export interface IEnvironment {
   jwtSecret: string;
   accessTokenExpiration: string;
   refreshTokenExpiration: string;
+  systemAdmin: ISystemAdmin;
+}
+
+export interface ISystemAdmin {
+  name: string;
+  email: string;
+  password: string;
 }
