@@ -26,6 +26,7 @@ import { SystemAdminsModule } from './system-admins/system-admins.module';
 import { AuthGuard } from './auth/guards/auth.guard.guard';
 import { CustomI18nService } from './i18n/custom-i18n.service';
 import { RolesGuard } from './auth/guards/roles.guard';
+import { TransformResponseInterceptor } from './common/interceptors/transform-response.interceptor';
 
 @Module({
   imports: [
@@ -83,6 +84,10 @@ import { RolesGuard } from './auth/guards/roles.guard';
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformResponseInterceptor,
     },
   ],
 })
