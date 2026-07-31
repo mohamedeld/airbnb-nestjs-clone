@@ -25,6 +25,7 @@ import { AppSettingsModule } from './app-settings/app-settings.module';
 import { SystemAdminsModule } from './system-admins/system-admins.module';
 import { AuthGuard } from './auth/guards/auth.guard.guard';
 import { CustomI18nService } from './i18n/custom-i18n.service';
+import { RolesGuard } from './auth/guards/roles.guard';
 
 @Module({
   imports: [
@@ -78,6 +79,10 @@ import { CustomI18nService } from './i18n/custom-i18n.service';
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
     },
   ],
 })

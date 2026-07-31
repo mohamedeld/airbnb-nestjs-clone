@@ -15,8 +15,10 @@ import { Roles } from 'src/common/constants';
 import { ResopnseUserDto } from 'src/users/dtos/user-response.dto';
 import { SystemAdminLResponseDto } from 'src/system-admins/dtos/system-admin-reponse.dto';
 import { IPrincipal } from '../interfaces/princapal.interace';
+import { Reflector } from '@nestjs/core';
+import { IS_PUBLIC_KEY } from 'src/common/public.decorator';
 
-type RequestWithUser = Request & {
+export type RequestWithUser = Request & {
   user?: IPrincipal;
 };
 
@@ -28,9 +30,18 @@ export class AuthGuard implements CanActivate {
     private readonly customI18n: CustomI18nService,
     private readonly userService: UsersService,
     private readonly adminService: SystemAdminsService,
+    private reflector: Reflector,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+    if (isPublic) {
+      return true;
+    }
+
     const request = context.switchToHttp().getRequest<RequestWithUser>();
     const token = this.extractTokenFromHeader(request);
     if (!token) {

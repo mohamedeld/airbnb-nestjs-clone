@@ -15,11 +15,14 @@ import { FindAllCitiesDto } from './dtos/find-all-cities.dto';
 import { PaginatedResult } from 'src/common/data-access';
 import { FindCityByIdDto } from './dtos/find-city.dto';
 import { UpdateCityDto } from './dtos/update-city.dto';
+import { Roles } from 'src/common/constants';
+import { Allowed } from 'src/auth/decorators/roles.decorator';
 
 @Controller('cities')
 export class CitiesController {
   constructor(private readonly citiesService: CitiesService) {}
 
+  @Allowed([Roles.SYSTEM_ADMIN])
   @Post('create')
   async createCity(@Body() body: CreateCityDto): Promise<CityResponseDto> {
     return await this.citiesService.createCity(body);

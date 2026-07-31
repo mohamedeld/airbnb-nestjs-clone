@@ -17,5 +17,6 @@
   "UnitCategories_EXIST": "فئات الوحدات موجودة بالفعل",
   "SYSTEM_ADMIN_NOT_FOUND": "مسؤول النظام غير موجود",
   "INVALID_SYSTEM_ADMIN_CREDENTIALS": "بيانات اعتماد مسؤول النظام غير صالحة",
-  "INVALID_TOKEN": "رمز غير صالح"
+  "INVALID_TOKEN": "رمز غير صالح",
+  "FORBIDDEN": "ليس لديك إذن للوصول إلى هذا المورد."
 }
