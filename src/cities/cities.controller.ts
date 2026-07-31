@@ -39,6 +39,7 @@ export class CitiesController {
     return await this.citiesService.findCity(param.id);
   }
 
+  @Allowed([Roles.SYSTEM_ADMIN])
   @Patch('/:id')
   async updateCity(
     @Param() param: FindCityByIdDto,
@@ -47,11 +48,13 @@ export class CitiesController {
     return await this.citiesService.updateCity(param.id, body);
   }
 
+  @Allowed([Roles.SYSTEM_ADMIN])
   @Delete('/soft-delete/:id')
   async softDeleteCity(@Param() param: FindCityByIdDto) {
     return await this.citiesService.softDeleteCity(param.id);
   }
 
+  @Allowed([Roles.SYSTEM_ADMIN])
   @Delete('/:id')
   async deleteCity(@Param() param: FindCityByIdDto) {
     return await this.citiesService.deleteCity(param.id);
