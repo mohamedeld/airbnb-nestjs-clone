@@ -10,6 +10,9 @@ import { UpdateCityUseCase } from './usecases/update-city.usecase';
 import { UpdateCityDto } from './dtos/update-city.dto';
 import { SoftDeleteCityUseCase } from './usecases/soft-delete-city.usecase';
 import { DeleteCityUseCase } from './usecases/delete-city.usecase';
+import { FindOneCityUseCase } from './usecases/find-one-city.usecase';
+import { QueryFilter } from 'mongoose';
+import { City } from './schema/city.schema';
 
 @Injectable()
 export class CitiesService {
@@ -20,6 +23,7 @@ export class CitiesService {
     private readonly updateCityUseCase: UpdateCityUseCase,
     private readonly softDeleteCityUseCase: SoftDeleteCityUseCase,
     private readonly deleteCityUseCase: DeleteCityUseCase,
+    private readonly findOneCityUseCase: FindOneCityUseCase,
   ) {}
 
   async createCity(body: CreateCityDto): Promise<CityResponseDto> {
@@ -29,6 +33,10 @@ export class CitiesService {
     query: FindAllCitiesDto,
   ): Promise<PaginatedResult<CityResponseDto>> {
     return await this.finalAllCitiesUseCase.execute(query);
+  }
+
+  async findOne(query: QueryFilter<City>): Promise<CityResponseDto> {
+    return await this.findOneCityUseCase.execute(query);
   }
 
   async findCity(id: string): Promise<CityResponseDto> {

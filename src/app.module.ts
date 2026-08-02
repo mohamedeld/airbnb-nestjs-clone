@@ -28,6 +28,7 @@ import { CustomI18nService } from './i18n/custom-i18n.service';
 import { RolesGuard } from './auth/guards/roles.guard';
 import { TransformResponseInterceptor } from './common/interceptors/transform-response.interceptor';
 import { FilesUploadModule } from './files-upload/files-upload.module';
+import { UnitsModule } from './units/units.module';
 
 @Module({
   imports: [
@@ -67,6 +68,7 @@ import { FilesUploadModule } from './files-upload/files-upload.module';
     AppSettingsModule,
     SystemAdminsModule,
     FilesUploadModule,
+    UnitsModule,
   ],
   controllers: [],
   providers: [

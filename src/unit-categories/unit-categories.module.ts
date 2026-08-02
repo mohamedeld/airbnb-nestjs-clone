@@ -14,6 +14,7 @@ import { UpdateUnitCategoriesUseCase } from './usecases/update-unit-categories.u
 import { UnitCategoriesRepository } from './repository/unit-categories.repository';
 import { FindAllUnitCategoriesUseCase } from './usecases/final-all-unit-categories.usecase';
 import { GetUnitCategoriesUseCase } from './usecases/get-unit-categories.usecase';
+import { FindOneUnitCategories } from './usecases/find-one-unit-categories.usecase';
 
 @Module({
   imports: [
@@ -32,6 +33,8 @@ import { GetUnitCategoriesUseCase } from './usecases/get-unit-categories.usecase
     DeleteUnitCategoriesUseCase,
     SoftDeleteUnitCategoriesUseCase,
     UpdateUnitCategoriesUseCase,
+    FindOneUnitCategories,
   ],
+  exports: [UnitCategoriesService],
 })
 export class UnitCategoriesModule {}

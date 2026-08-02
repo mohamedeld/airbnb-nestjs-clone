@@ -10,6 +10,7 @@ import { GetCountriesUseCase } from './usecases/find-countries.usecase';
 import { SoftDeleteCountryUseCase } from './usecases/soft-delete-country.usecase';
 import { UpdateCountryUseCase } from './usecases/update-country.usecase';
 import { CountryRepository } from './repository/country.repository';
+import { FindOneUseCase } from './usecases/find-one.usecase';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { CountryRepository } from './repository/country.repository';
     SoftDeleteCountryUseCase,
     UpdateCountryUseCase,
     CountryRepository,
+    FindOneUseCase,
   ],
   controllers: [CountriesController],
   exports: [CountriesService],

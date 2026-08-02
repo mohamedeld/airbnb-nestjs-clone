@@ -12,6 +12,7 @@ import { CountriesModule } from 'src/countries/countries.module';
 import { UpdateCityUseCase } from './usecases/update-city.usecase';
 import { SoftDeleteCityUseCase } from './usecases/soft-delete-city.usecase';
 import { DeleteCityUseCase } from './usecases/delete-city.usecase';
+import { FindOneCityUseCase } from './usecases/find-one-city.usecase';
 
 @Module({
   imports: [
@@ -29,6 +30,8 @@ import { DeleteCityUseCase } from './usecases/delete-city.usecase';
     UpdateCityUseCase,
     SoftDeleteCityUseCase,
     DeleteCityUseCase,
+    FindOneCityUseCase,
   ],
+  exports: [CitiesService],
 })
 export class CitiesModule {}

@@ -20,5 +20,6 @@ import { GetUpsertAppSettingsUseCase } from './usecases/get-upsert-app-settings.
     UpsertAppSettingsUseCase,
     GetUpsertAppSettingsUseCase,
   ],
+  exports: [AppSettingsService],
 })
 export class AppSettingsModule {}
