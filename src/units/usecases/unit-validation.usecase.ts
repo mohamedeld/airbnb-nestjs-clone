@@ -6,6 +6,7 @@ import { CountriesService } from 'src/countries/countries.service';
 import { CustomI18nService } from 'src/i18n/custom-i18n.service';
 import { UnitCategoriesService } from 'src/unit-categories/unit-categories.service';
 import { CreateUnitDto } from '../dtos/create-unit.dto';
+import { UpdateUnitDto } from '../dtos/update-unit.dto';
 
 @Injectable()
 export class UnitValidationUseCase {
@@ -17,7 +18,7 @@ export class UnitValidationUseCase {
     private readonly custom18nService: CustomI18nService,
   ) {}
 
-  async execute(body: CreateUnitDto): Promise<void> {
+  async execute(body: CreateUnitDto | UpdateUnitDto): Promise<void> {
     const appSettings = await this.appSettingsService.getAppSettings();
     if (body?.costPerDay < appSettings?.minPrice)
       throw new BadRequestException(

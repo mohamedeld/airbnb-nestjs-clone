@@ -11,6 +11,15 @@ import { CountriesModule } from 'src/countries/countries.module';
 import { AppSettingsModule } from 'src/app-settings/app-settings.module';
 import { UnitCategoriesModule } from 'src/unit-categories/unit-categories.module';
 import { UnitValidationUseCase } from './usecases/unit-validation.usecase';
+import { FindOneUnitUseCase } from './usecases/find-one-unit.usecase';
+import { CheckUnitAuthUseCase } from './usecases/check-unit-auth.usecase';
+import { UpdateUnitUseCase } from './usecases/update-unit.usecase';
+import { FindByIdUnitUseCase } from './usecases/find-by-id.usecase';
+import { FindAllUnitsUseCase } from './usecases/find-all-usecase';
+import { DeleteUnitUseCase } from './usecases/delete-unit.usecase';
+import { FindAllByUserUseCase } from './usecases/find-all-user-units.usecase';
+import { ActivateUnitUseCase } from './usecases/activate-unit.usecase';
+import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
 
 @Module({
   imports: [
@@ -27,6 +36,15 @@ import { UnitValidationUseCase } from './usecases/unit-validation.usecase';
     CustomI18nService,
     CreateUnitUseCase,
     UnitValidationUseCase,
+    FindOneUnitUseCase,
+    CheckUnitAuthUseCase,
+    UpdateUnitUseCase,
+    FindByIdUnitUseCase,
+    FindAllUnitsUseCase,
+    DeleteUnitUseCase,
+    FindAllByUserUseCase,
+    ActivateUnitUseCase,
+    DeActivateUnitUseCase,
   ],
 })
 export class UnitsModule {}

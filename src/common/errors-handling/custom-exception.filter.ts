@@ -24,9 +24,8 @@ export class CustomExceptionFilter implements ExceptionFilter {
         errors: inputFormattedErrors,
       });
     }
-    console.log('ex', exception);
     return response.status(500).json({
-      errors: [{ message: 'Internal Server Error' }],
+      errors: [{ message: `Internal Server Error` }],
     });
   }
 }

@@ -19,5 +19,10 @@
   "INVALID_SYSTEM_ADMIN_CREDENTIALS": "Invalid system admin credentials",
   "INVALID_TOKEN": "Invalid token",
   "FORBIDDEN": "You do not have permission to access this resource.",
-  "APP_SETTING_COST": "Cost per can not be less than min price:"
+  "APP_SETTING_COST": "Cost per can not be less than min price:",
+  "UNIT_NOT_FOUND": "Unit not found",
+  "UNIT_ALREADY_EXIST": "Unit is already exist",
+  "UNIT_NOT_AVAILABLE": "Unit is not available",
+  "UNIT_FORBIDDEN": "You do not have permission to access this unit.",
+  "UNIT_DELETED": "Unit is deleted"
 }
