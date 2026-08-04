@@ -25,5 +25,7 @@
   "UNIT_NOT_AVAILABLE": "Unit is not available",
   "UNIT_FORBIDDEN": "You do not have permission to access this unit.",
   "UNIT_DELETED": "Unit is deleted",
-  "FAILED_UPLOAD": "Failed to upload file"
+  "FAILED_UPLOAD": "Failed to upload file",
+  "FAILED_DELETE": "Failed to delete file",
+  "IMAGE_NOT_PROVIDED": "No photos provided"
 }

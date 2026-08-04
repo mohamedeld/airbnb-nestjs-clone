@@ -15,7 +15,11 @@ export class FilesUploadService {
     return this.uploadSingleFileUseCase.uploadFile(file);
   }
 
-  uploadMultipleFiles(files: Express.Multer.File[]) {}
+  async uploadMultipleFiles(files: Express.Multer.File[]): Promise<string[]> {
+    return await this.uploadMultipleFilesUseCase.uploadFiles(files);
+  }
 
-  deleteFileByUrl(url: string) {}
+  async deleteFileByUrl(url: string | string[]): Promise<void> {
+    return await this.deleteFileByUrlUseCase.execute(url);
+  }
 }

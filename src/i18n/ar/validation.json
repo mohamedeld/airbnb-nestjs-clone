@@ -25,5 +25,7 @@
   "UNIT_NOT_AVAILABLE": "الوحدة غير متاحة",
   "UNIT_FORBIDDEN": "ليس لديك إذن للوصول إلى هذه الوحدة.",
   "UNIT_DELETED": "الوحدة محذوفة",
-  "FAILED_UPLOAD": "فشل تحميل الملف"
+  "FAILED_UPLOAD": "فشل تحميل الملف",
+  "FAILED_DELETE": " فشل حذف الملف",
+  "IMAGE_NOT_PROVIDED": "لم يتم تقديم أي صور"
 }

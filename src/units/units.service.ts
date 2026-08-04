@@ -16,6 +16,8 @@ import { DeleteUnitUseCase } from './usecases/delete-unit.usecase';
 import { FindAllByUserUseCase } from './usecases/find-all-user-units.usecase';
 import { ActivateUnitUseCase } from './usecases/activate-unit.usecase';
 import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
+import { DeleteUnitPhotosUseCase } from './usecases/delete-unit-photos.usecase';
+import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
 
 @Injectable()
 export class UnitsService {
@@ -29,6 +31,8 @@ export class UnitsService {
     private readonly findAllByUserUseCase: FindAllByUserUseCase,
     private readonly activateUnitUseCase: ActivateUnitUseCase,
     private readonly deActivateUnitUseCase: DeActivateUnitUseCase,
+    private readonly deleteUnitPhotosUseCase: DeleteUnitPhotosUseCase,
+    private readonly updateUnitPhotosUseCase: UpdateUnitPhotosUsCase,
   ) {}
 
   async createUnit(
@@ -78,5 +82,20 @@ export class UnitsService {
     user: ICurrentUser,
   ): Promise<UnitResponseDto> {
     return await this.deActivateUnitUseCase.execute(id, user);
+  }
+
+  async deletePhotos(
+    id: string,
+    user: ICurrentUser,
+    photos: string[],
+  ): Promise<void> {
+    return await this.deleteUnitPhotosUseCase.execute(id, user, photos);
+  }
+  async updatePhotos(
+    id: string,
+    user: ICurrentUser,
+    photos: Express.Multer.File[],
+  ): Promise<UnitResponseDto> {
+    return await this.updateUnitPhotosUseCase.execute(id, user, photos);
   }
 }

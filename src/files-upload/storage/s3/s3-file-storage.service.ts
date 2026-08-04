@@ -71,9 +71,31 @@ export class S3FileStorageService {
     }
   }
 
-  uploadMultipleFiles(files: Express.Multer.File[]) {}
-
-  deleteFileByUrl(url: string) {}
+  async deleteFileByUrl(url: string | string[]): Promise<void> {
+    const urls = Array.isArray(url) ? url : [url];
+    if (urls?.length === 0) return;
+    try {
+      const keys = urls?.map((item) => {
+        const urlObj = new URL(item);
+        const pathname = urlObj?.pathname;
+        const bucketPrefix = `/${this.bucketName}/`;
+        return pathname.startsWith(bucketPrefix)
+          ? pathname.slice(bucketPrefix.length)
+          : pathname.slice(1);
+      });
+      await this.s3Client.deleteObjects({
+        Bucket: this.bucketName,
+        Delete: {
+          Objects: keys.map((key) => ({ Key: key })),
+        },
+      });
+    } catch (error) {
+      console.log(error);
+      throw new BadRequestException(
+        this.custom18nService.translate('validation.FAILED_DELETE'),
+      );
+    }
+  }
 
   private generateFileName(file: File): string {
     const fileName = `${Date.now()}-${file.originalname ?? file.filename}`;

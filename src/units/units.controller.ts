@@ -24,6 +24,7 @@ import { FindAllUnitsDto } from './dtos/find-all-unit.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { createValidationFactory } from 'src/common/files/files-validation-factory';
 import { FilesUploadService } from 'src/files-upload/files-upload.service';
+import { DeleteUnitPhotosDto } from './dtos/delete-unit-photos.dto';
 
 @Controller('units')
 export class UnitsController {
@@ -46,8 +47,8 @@ export class UnitsController {
     images: Express.Multer.File[],
     @CurrentAccount() currentAccount: IPrincipal,
   ): Promise<UnitResponseDto> {
-    const photos = await this.fileUploadService.uploadSingleFile(images[0]);
-    body.photos = [photos];
+    const photos = await this.fileUploadService.uploadMultipleFiles(images);
+    body.photos = photos;
     return await this.unitsService.createUnit(body, currentAccount?.user);
   }
 
@@ -63,8 +64,6 @@ export class UnitsController {
     @Body() body: UpdateUnitDto,
     @CurrentAccount() currentAccount: IPrincipal,
   ): Promise<UnitResponseDto> {
-    console.log('param.id', param.id);
-
     return await this.unitsService.updateUnit(
       param?.id,
       body,
@@ -117,6 +116,41 @@ export class UnitsController {
     return await this.unitsService.deactivateUnit(
       param?.id,
       currentAccount?.user,
+    );
+  }
+
+  @Allowed([Roles.USER])
+  @Delete('/:id/photos')
+  async deletePhotos(
+    @Param() param: FindUnitByIdDto,
+    @CurrentAccount() currentAccount: IPrincipal,
+    @Body() body: DeleteUnitPhotosDto,
+  ): Promise<void> {
+    return this.unitsService.deletePhotos(
+      param.id,
+      currentAccount?.user,
+      body.photos,
+    );
+  }
+
+  @Allowed([Roles.USER])
+  @Patch('/:id/photos')
+  @UseInterceptors(FilesInterceptor('photos', 10))
+  async updatePhotos(
+    @Param() param: FindUnitByIdDto,
+    @CurrentAccount() currentAccount: IPrincipal,
+    @UploadedFiles(
+      createValidationFactory({
+        maxSize: 1024 * 1024 * 2,
+        fileType: 'image/jpeg|image/png|image/jpg',
+      }),
+    )
+    images: Express.Multer.File[],
+  ): Promise<UnitResponseDto> {
+    return await this.unitsService.updatePhotos(
+      param.id,
+      currentAccount?.user,
+      images,
     );
   }
 }

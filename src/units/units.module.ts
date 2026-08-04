@@ -21,6 +21,8 @@ import { FindAllByUserUseCase } from './usecases/find-all-user-units.usecase';
 import { ActivateUnitUseCase } from './usecases/activate-unit.usecase';
 import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
 import { FilesUploadModule } from 'src/files-upload/files-upload.module';
+import { DeleteUnitPhotosUseCase } from './usecases/delete-unit-photos.usecase';
+import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
 
 @Module({
   imports: [
@@ -47,6 +49,8 @@ import { FilesUploadModule } from 'src/files-upload/files-upload.module';
     FindAllByUserUseCase,
     ActivateUnitUseCase,
     DeActivateUnitUseCase,
+    DeleteUnitPhotosUseCase,
+    UpdateUnitPhotosUsCase,
   ],
 })
 export class UnitsModule {}
