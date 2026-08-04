@@ -20,6 +20,7 @@ import { DeleteUnitUseCase } from './usecases/delete-unit.usecase';
 import { FindAllByUserUseCase } from './usecases/find-all-user-units.usecase';
 import { ActivateUnitUseCase } from './usecases/activate-unit.usecase';
 import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
+import { FilesUploadModule } from 'src/files-upload/files-upload.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
     CountriesModule,
     AppSettingsModule,
     UnitCategoriesModule,
+    FilesUploadModule,
   ],
   controllers: [UnitsController],
   providers: [

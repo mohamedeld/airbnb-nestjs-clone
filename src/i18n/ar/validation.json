@@ -24,5 +24,6 @@
   "UNIT_ALREADY_EXIST": "الوحدة موجودة بالفعل",
   "UNIT_NOT_AVAILABLE": "الوحدة غير متاحة",
   "UNIT_FORBIDDEN": "ليس لديك إذن للوصول إلى هذه الوحدة.",
-  "UNIT_DELETED": "الوحدة محذوفة"
+  "UNIT_DELETED": "الوحدة محذوفة",
+  "FAILED_UPLOAD": "فشل تحميل الملف"
 }

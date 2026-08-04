@@ -24,6 +24,8 @@
     "docker:logs": "docker-compose logs -f"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1101.0",
+    "@aws-sdk/lib-storage": "^3.1101.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
@@ -33,14 +35,17 @@
     "@nestjs/swagger": "^11.4.6",
     "@types/joi": "^17.2.3",
     "bcryptjs": "^3.0.3",
+    "bytes": "^3.1.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "joi": "^18.2.3",
     "magic-bytes.js": "^1.13.1",
+    "mime-types": "^3.0.2",
     "mongoose": "^9.8.0",
     "nestjs-i18n": "^10.8.5",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

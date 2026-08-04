@@ -12,4 +12,9 @@ export const defaultEnv = (): IEnvironment => ({
     email: process.env.SYSTEM_ADMIN_EMAIL as string,
     password: process.env.SYSTEM_ADMIN_PASSWORD as string,
   },
+  region: process.env.REGION as string,
+  awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+  awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+  bucketName: process.env.BUCKET_NAME as string,
+  minioEndpoint: process.env.MINIO_ENDPOINT as string,
 });

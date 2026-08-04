@@ -7,6 +7,8 @@ import {
   Patch,
   Post,
   Query,
+  UploadedFiles,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UnitsService } from './units.service';
 import { CreateUnitDto } from './dtos/create-unit.dto';
@@ -19,17 +21,33 @@ import { FindUnitByIdDto } from './dtos/find-unit-by-id.dto';
 import { UpdateUnitDto } from './dtos/update-unit.dto';
 import { PaginatedResult } from 'src/common/data-access';
 import { FindAllUnitsDto } from './dtos/find-all-unit.dto';
+import { FilesInterceptor } from '@nestjs/platform-express';
+import { createValidationFactory } from 'src/common/files/files-validation-factory';
+import { FilesUploadService } from 'src/files-upload/files-upload.service';
 
 @Controller('units')
 export class UnitsController {
-  constructor(private readonly unitsService: UnitsService) {}
+  constructor(
+    private readonly unitsService: UnitsService,
+    private readonly fileUploadService: FilesUploadService,
+  ) {}
 
   @Allowed([Roles.USER])
+  @UseInterceptors(FilesInterceptor('photos', 10))
   @Post('create')
   async createUnit(
     @Body() body: CreateUnitDto,
+    @UploadedFiles(
+      createValidationFactory({
+        maxSize: 1024 * 1024 * 2,
+        fileType: 'image/jpeg|image/png|image/jpg',
+      }),
+    )
+    images: Express.Multer.File[],
     @CurrentAccount() currentAccount: IPrincipal,
   ): Promise<UnitResponseDto> {
+    const photos = this.fileUploadService.uploadMultipleFiles(images);
+
     return await this.unitsService.createUnit(body, currentAccount?.user);
   }
 

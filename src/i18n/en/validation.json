@@ -24,5 +24,6 @@
   "UNIT_ALREADY_EXIST": "Unit is already exist",
   "UNIT_NOT_AVAILABLE": "Unit is not available",
   "UNIT_FORBIDDEN": "You do not have permission to access this unit.",
-  "UNIT_DELETED": "Unit is deleted"
+  "UNIT_DELETED": "Unit is deleted",
+  "FAILED_UPLOAD": "Failed to upload file"
 }
