@@ -46,8 +46,8 @@ export class UnitsController {
     images: Express.Multer.File[],
     @CurrentAccount() currentAccount: IPrincipal,
   ): Promise<UnitResponseDto> {
-    const photos = this.fileUploadService.uploadMultipleFiles(images);
-
+    const photos = await this.fileUploadService.uploadSingleFile(images[0]);
+    body.photos = [photos];
     return await this.unitsService.createUnit(body, currentAccount?.user);
   }
 

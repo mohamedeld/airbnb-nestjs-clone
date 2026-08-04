@@ -11,7 +11,9 @@ export class FilesUploadService {
     private readonly deleteFileByUrlUseCase: DeleteFileByUrlUseCase,
   ) {}
 
-  uploadSingleFile(file: Express.Multer.File) {}
+  uploadSingleFile(file: Express.Multer.File): Promise<string> {
+    return this.uploadSingleFileUseCase.uploadFile(file);
+  }
 
   uploadMultipleFiles(files: Express.Multer.File[]) {}
 

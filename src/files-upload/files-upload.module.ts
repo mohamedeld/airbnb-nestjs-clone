@@ -5,6 +5,7 @@ import { DeleteFileByUrlUseCase } from './usecases/delete-file-by-url.usecase';
 import { UploadMultipleFilesUseCase } from './usecases/upload-multiple-files.usecases';
 import { UploadSingleFileUseCase } from './usecases/upload-single-file.usecase';
 import { FilesUploadService } from './files-upload.service';
+import { S3FileStorageService } from './storage/s3/s3-file-storage.service';
 
 @Module({
   controllers: [FilesUploadController],
@@ -14,6 +15,7 @@ import { FilesUploadService } from './files-upload.service';
     UploadSingleFileUseCase,
     UploadMultipleFilesUseCase,
     FilesUploadService,
+    S3FileStorageService,
   ],
   exports: [FilesUploadService],
 })

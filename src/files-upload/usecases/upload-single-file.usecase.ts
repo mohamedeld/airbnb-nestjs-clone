@@ -1,4 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { S3FileStorageService } from '../storage/s3/s3-file-storage.service';
 
 @Injectable()
-export class UploadSingleFileUseCase {}
+export class UploadSingleFileUseCase {
+  constructor(private readonly s3FileStorageService: S3FileStorageService) {}
+
+  async uploadFile(file: Express.Multer.File): Promise<string> {
+    return await this.s3FileStorageService.uploadSingleFile(file);
+  }
+}
