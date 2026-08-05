@@ -10,6 +10,10 @@ import { UnitsModule } from 'src/units/units.module';
 import { BookingValidationUseCase } from './usecases/booking-validation.usecase';
 import { CalculateTotalAmountUseCase } from './usecases/calculate-total-amount.usecase';
 import { AppSettingsModule } from 'src/app-settings/app-settings.module';
+import { BookingRequestUseCase } from './usecases/booking-request.usecase';
+import { FindAllBookingsUseCase } from './usecases/find-al-bookings.usecase';
+import { FindAllQueryBuilder } from './query-builder/factory-query-builder';
+import { FindMyBookingsUseCase } from './usecases/find-my-booking.usecase';
 
 @Module({
   imports: [
@@ -24,6 +28,10 @@ import { AppSettingsModule } from 'src/app-settings/app-settings.module';
     CustomI18nService,
     BookingValidationUseCase,
     CalculateTotalAmountUseCase,
+    BookingRequestUseCase,
+    FindAllBookingsUseCase,
+    FindAllQueryBuilder,
+    FindMyBookingsUseCase,
   ],
   controllers: [BookingsController],
 })

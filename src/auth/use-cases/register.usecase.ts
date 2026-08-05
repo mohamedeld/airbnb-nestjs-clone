@@ -15,6 +15,7 @@ export class RegisterUseCase {
     const token = await this.generateToken.execute({
       id: createdUser?.id?.toString(),
       role: createdUser?.role,
+      sub: createdUser?.id?.toString(),
     });
     return { ...createdUser, ...token };
   }

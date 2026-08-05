@@ -39,6 +39,7 @@ export class LoginAsSystemAdminUseCase {
     const token = await this.generateTokens.execute({
       id: existUser?.id?.toString(),
       role: body?.role,
+      sub: existUser?.id?.toString(),
     });
     const plainedUser = plainToInstance(ResopnseUserDto, existUser);
     return {

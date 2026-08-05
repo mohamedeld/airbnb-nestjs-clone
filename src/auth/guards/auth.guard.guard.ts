@@ -69,10 +69,11 @@ export class AuthGuard implements CanActivate {
   private async buildCurrentUser(payload: JwtPayload): Promise<IPrincipal> {
     let currentAccount: ResopnseUserDto | SystemAdminLResponseDto;
     if (payload.role === Roles.USER) {
-      currentAccount = await this.userService.findOne({ id: payload.id });
+      currentAccount = await this.userService.findOne({ _id: payload.sub });
     } else {
-      currentAccount = await this.adminService.findOne({ id: payload.id });
+      currentAccount = await this.adminService.findOne({ _id: payload.sub });
     }
+
     return {
       user: {
         _id: currentAccount?.id,

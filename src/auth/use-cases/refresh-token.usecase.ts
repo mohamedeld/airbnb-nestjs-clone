@@ -76,6 +76,7 @@ export class RefreshTokenUseCase {
     return this.generateTokens.execute({
       id: storedToken.userId,
       role: Roles.USER,
+      sub: storedToken?.userId,
     });
   }
 }
