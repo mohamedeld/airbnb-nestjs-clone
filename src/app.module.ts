@@ -29,6 +29,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { TransformResponseInterceptor } from './common/interceptors/transform-response.interceptor';
 import { FilesUploadModule } from './files-upload/files-upload.module';
 import { UnitsModule } from './units/units.module';
+import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
   imports: [
@@ -69,6 +70,7 @@ import { UnitsModule } from './units/units.module';
     SystemAdminsModule,
     FilesUploadModule,
     UnitsModule,
+    BookingsModule,
   ],
   controllers: [],
   providers: [

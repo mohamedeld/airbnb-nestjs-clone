@@ -27,5 +27,7 @@
   "UNIT_DELETED": "الوحدة محذوفة",
   "FAILED_UPLOAD": "فشل تحميل الملف",
   "FAILED_DELETE": " فشل حذف الملف",
-  "IMAGE_NOT_PROVIDED": "لم يتم تقديم أي صور"
+  "IMAGE_NOT_PROVIDED": "لم يتم تقديم أي صور",
+  "CHECK_IN_BEFORE": "يجب أن يكون تاريخ تسجيل الوصول قبل تاريخ تسجيل المغادرة",
+  "UNITY_CAPACITY_EXCEEDED": " سعة الوحدة غير كافية"
 }

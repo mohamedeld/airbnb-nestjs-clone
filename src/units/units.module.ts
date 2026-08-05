@@ -52,5 +52,6 @@ import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
     DeleteUnitPhotosUseCase,
     UpdateUnitPhotosUsCase,
   ],
+  exports: [UnitsService],
 })
 export class UnitsModule {}

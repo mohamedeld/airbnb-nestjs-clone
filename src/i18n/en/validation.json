@@ -27,5 +27,7 @@
   "UNIT_DELETED": "Unit is deleted",
   "FAILED_UPLOAD": "Failed to upload file",
   "FAILED_DELETE": "Failed to delete file",
-  "IMAGE_NOT_PROVIDED": "No photos provided"
+  "IMAGE_NOT_PROVIDED": "No photos provided",
+  "CHECK_IN_BEFORE": "Check-in date must be before check-out date",
+  "UNITY_CAPACITY_EXCEEDED": "Unit capacity is not enough"
 }
