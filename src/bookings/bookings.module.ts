@@ -14,6 +14,13 @@ import { BookingRequestUseCase } from './usecases/booking-request.usecase';
 import { FindAllBookingsUseCase } from './usecases/find-al-bookings.usecase';
 import { FindAllQueryBuilder } from './query-builder/factory-query-builder';
 import { FindMyBookingsUseCase } from './usecases/find-my-booking.usecase';
+import { CheckBookingAuthUseCase } from './usecases/check-auth-booking.usecase';
+import { FindByIdUseCase } from './usecases/find-booking-by-id.usecase';
+import { FindOneBookingUseCase } from './usecases/find-one-booking.usecase';
+import { BookingParticipantAuthUseCase } from './usecases/booking-participant-auth.usecase';
+import { UpdateBookingByGuestUseCase } from './usecases/update-booking-by-guest.usecase';
+import { CancelBookingByGuestUseCase } from './usecases/cancel-booking-by-guest.usecase';
+import { ChangeBookingStatusByHostUseCase } from './usecases/change-booking-stauts.usecase';
 
 @Module({
   imports: [
@@ -32,6 +39,13 @@ import { FindMyBookingsUseCase } from './usecases/find-my-booking.usecase';
     FindAllBookingsUseCase,
     FindAllQueryBuilder,
     FindMyBookingsUseCase,
+    CheckBookingAuthUseCase,
+    FindByIdUseCase,
+    FindOneBookingUseCase,
+    BookingParticipantAuthUseCase,
+    UpdateBookingByGuestUseCase,
+    CancelBookingByGuestUseCase,
+    ChangeBookingStatusByHostUseCase,
   ],
   controllers: [BookingsController],
 })

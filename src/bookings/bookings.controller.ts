@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { BookingsService } from './bookings.service';
 import { AvailabilityResponseDto } from './dtos/availability-response.dto';
 import { CheckAvailabilityDto } from './dtos/check-availability.dot';
@@ -11,6 +19,11 @@ import type { IPrincipal } from 'src/auth/interfaces/princapal.interace';
 import { BookingResponseDto } from './dtos/booking-request.dto';
 import { FindAllBookingsDto } from './dtos/find-all-booking.dto';
 import { PaginatedResult } from 'src/common/data-access';
+import { Booking } from './schemas/bookings.schema';
+import type { QueryFilter } from 'mongoose';
+import { UpdateBookingRequestDto } from './dtos/update-booking-request.dto';
+import { CancelBookingByGuestDto } from './dtos/cancel-booking-by-guest.dto';
+import { ChangeBookingStatusDto } from './dtos/change-booking-status.dto';
 
 @Controller('bookings')
 export class BookingsController {
@@ -48,5 +61,50 @@ export class BookingsController {
     @CurrentAccount() currentAccount: IPrincipal,
   ): Promise<PaginatedResult<BookingResponseDto>> {
     return await this.bookingsService.findMine(query, currentAccount?.user);
+  }
+
+  @Get()
+  async findOne(
+    @Query() query: QueryFilter<Booking>,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.findOne(query);
+  }
+
+  @Get('/:id')
+  async findById(
+    @Param('id') id: string,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.findById(id, principal);
+  }
+
+  @Allowed([Roles.USER])
+  @Patch('/:id')
+  async updateByGuest(
+    @Param('id') id: string,
+    @Body() body: UpdateBookingRequestDto,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.updateByGuest(id, body, principal.user);
+  }
+
+  @Allowed([Roles.USER])
+  @Patch('/:id/cancel')
+  async cancelByGuest(
+    @Param('id') id: string,
+    @Body() body: CancelBookingByGuestDto,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.cancelByGuest(id, body, principal.user);
+  }
+
+  @Allowed([Roles.USER])
+  @Patch('/:id/status')
+  async changeStatusByHost(
+    @Param('id') id: string,
+    @Body() body: ChangeBookingStatusDto,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.changeStatusByHost(id, body, principal.user);
   }
 }

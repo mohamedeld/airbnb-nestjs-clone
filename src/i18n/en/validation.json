@@ -30,5 +30,12 @@
   "IMAGE_NOT_PROVIDED": "No photos provided",
   "CHECK_IN_BEFORE": "Check-in date must be before check-out date",
   "UNITY_CAPACITY_EXCEEDED": "Unit capacity is not enough",
-  "BOOK_OWN": "You cannot book your own unit"
+  "BOOK_OWN": "You cannot book your own unit",
+  "BOOKING_NOT_FOUND": "Booking not found",
+  "BOOKING_FORBIDDEN": "You are not authorized to access this booking",
+  "BOOKING_NOT_ALLOWED": "You are not authorized to update this booking",
+  "CHECK_IN_REQUIRED": "Check-in date is required",
+  "CHECK_OUT_REQUIRED": "Check-out date is required",
+  "BOOKING_CANNOT_BE_CANCELED": "Booking cannot be canceled",
+  "BOOKING_ALREADY_APPROVED": "Booking already approved"
 }

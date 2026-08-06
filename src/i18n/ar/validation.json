@@ -30,5 +30,12 @@
   "IMAGE_NOT_PROVIDED": "لم يتم تقديم أي صور",
   "CHECK_IN_BEFORE": "يجب أن يكون تاريخ تسجيل الوصول قبل تاريخ تسجيل المغادرة",
   "UNITY_CAPACITY_EXCEEDED": " سعة الوحدة غير كافية",
-  "BOOK_OWN": "لا يمكنك حجز وحدتك الخاصة"
+  "BOOK_OWN": "لا يمكنك حجز وحدتك الخاصة",
+  "BOOKING_NOT_FOUND": "الحجز غير موجود",
+  "BOOKING_FORBIDDEN": "غير مصرح لك بالوصول إلى هذا الحجز",
+  "BOOKING_NOT_ALLOWED": "غير مصرح لك بتحديث هذا الحجز",
+  "CHECK_IN_REQUIRED": "تاريخ تسجيل الوصول مطلوب",
+  "CHECK_OUT_REQUIRED": "تاريخ تسجيل المغادرة مطلوب",
+  "BOOKING_CANNOT_BE_CANCELED": "لا يمكن إلغاء هذا الحجز",
+  "BOOKING_ALREADY_APPROVED": "تمت الموافقة على الحجز بالفعل"
 }

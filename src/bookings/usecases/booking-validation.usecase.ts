@@ -16,31 +16,48 @@ export class BookingValidationUseCase {
   ) {}
 
   async execute(body: CheckAvailabilityDto): Promise<void> {
-    if (dayjs(body?.checkIn)?.isAfter(body?.checkOut)) {
-      throw new BadRequestException(
-        this.customI18nService.translate('CHECK_IN_BEFORE'),
-      );
-    }
-    const unit = await this.unitService.findOne({ _id: body?.unit });
-    if (body?.adultsCount && unit?.adultsCount < body?.adultsCount) {
-      throw new BadRequestException(
-        this.customI18nService.translate('validation.UNITY_CAPACITY_EXCEEDED'),
-      );
-    }
-    if (body?.kidsCount && unit?.kidsCount < body?.kidsCount) {
-      throw new BadRequestException(
-        this.customI18nService.translate('validation.UNITY_CAPACITY_EXCEEDED'),
-      );
-    }
+    this.validateDateRange(body.checkIn, body.checkOut);
+    await this.validateCapacity(body?.adultsCount, body?.kidsCount, body.unit);
+    await this.validateUnitAvailability(body.unit, body.checkIn, body.checkOut);
+  }
+  async validateUnitAvailability(
+    unit: string,
+    checkIn: number | Date,
+    checkOut: number | Date,
+    bookingId?: string,
+  ) {
     const overlappingBookings = await this.bookingRepository.find({
-      unit: body.unit,
+      unit: unit,
       status: { $in: [BookingStatus.PENDING, BookingStatus.CONFIRMED] },
-      checkIn: { $lte: body?.checkOut },
-      checkOut: { $gte: body?.checkIn },
+      checkIn: { $lte: checkOut },
+      checkOut: { $gte: checkIn },
+      _id: { $ne: bookingId },
     });
-    if (overlappingBookings.length > 0) {
+
+    if (overlappingBookings.length > 0)
       throw new BadRequestException(
-        this.customI18nService.translate('validation.UNIT_NOT_AVAILABLE'),
+        'Unit is not available for the selected dates',
+      );
+  }
+
+  async validateCapacity(
+    adultsCount: number | undefined,
+    kidsCount: number | undefined,
+    unitId: string,
+  ) {
+    const unit = await this.unitService.findById(unitId);
+
+    if (adultsCount && adultsCount > unit.adultsCount) {
+      throw new BadRequestException('unit capacity is not enough for adults');
+    }
+    if (kidsCount && kidsCount > unit.kidsCount)
+      throw new BadRequestException('unit capacity is not enough for kids');
+  }
+
+  validateDateRange(checkIn: number | Date, checkOut: number | Date) {
+    if (dayjs(checkIn).isAfter(checkOut)) {
+      throw new BadRequestException(
+        'Check-in date must be before check-out date',
       );
     }
   }
