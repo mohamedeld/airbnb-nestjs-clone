@@ -24,6 +24,7 @@ import type { QueryFilter } from 'mongoose';
 import { UpdateBookingRequestDto } from './dtos/update-booking-request.dto';
 import { CancelBookingByGuestDto } from './dtos/cancel-booking-by-guest.dto';
 import { ChangeBookingStatusDto } from './dtos/change-booking-status.dto';
+import { GuestReviewDto } from './dtos/guest-review.dto';
 
 @Controller('bookings')
 export class BookingsController {
@@ -106,5 +107,15 @@ export class BookingsController {
     @CurrentAccount() principal: IPrincipal,
   ): Promise<BookingResponseDto> {
     return this.bookingsService.changeStatusByHost(id, body, principal.user);
+  }
+
+  @Allowed([Roles.USER])
+  @Patch('/:id/review')
+  async addReview(
+    @Param('id') id: string,
+    @Body() body: GuestReviewDto,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<BookingResponseDto> {
+    return this.bookingsService.addReview(id, body, principal.user);
   }
 }

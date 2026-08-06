@@ -3,6 +3,7 @@ import { HydratedDocument } from 'mongoose';
 import { Unit } from 'src/units/schema/unit.schema';
 import { User } from 'src/users/schemas/user.schema';
 import { BookingStatus } from '../enums/booking-status.enum';
+import { GuestReview } from './subdocument/guest-review.schema';
 
 export type BookingDocument = HydratedDocument<Booking>;
 
@@ -58,6 +59,9 @@ export class Booking {
 
   @Prop()
   cancellationDate?: Date;
+
+  @Prop()
+  guestReview?: GuestReview;
 
   @Prop({ default: false })
   isDeleted: boolean;

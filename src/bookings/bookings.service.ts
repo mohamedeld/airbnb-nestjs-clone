@@ -23,6 +23,8 @@ import { CancelBookingByGuestUseCase } from './usecases/cancel-booking-by-guest.
 import { CancelBookingByGuestDto } from './dtos/cancel-booking-by-guest.dto';
 import { ChangeBookingStatusDto } from './dtos/change-booking-status.dto';
 import { ChangeBookingStatusByHostUseCase } from './usecases/change-booking-stauts.usecase';
+import { GuestReviewDto } from './dtos/guest-review.dto';
+import { GuestReviewUseCase } from './usecases/guest-review.usecase';
 
 @Injectable()
 export class BookingsService {
@@ -36,6 +38,7 @@ export class BookingsService {
     private readonly updateBookingByGuestUseCase: UpdateBookingByGuestUseCase,
     private readonly cancelBookingByGuestUseCase: CancelBookingByGuestUseCase,
     private readonly changeBookingStatusByHostUseCase: ChangeBookingStatusByHostUseCase,
+    private readonly addReviewUseCase: GuestReviewUseCase,
   ) {}
 
   async checkAvailability(
@@ -94,5 +97,13 @@ export class BookingsService {
     user: ICurrentUser,
   ): Promise<BookingResponseDto> {
     return this.changeBookingStatusByHostUseCase.execute(id, body, user);
+  }
+
+  async addReview(
+    id: string,
+    body: GuestReviewDto,
+    user: ICurrentUser,
+  ): Promise<BookingResponseDto> {
+    return await this.addReviewUseCase.execute(id, body, user);
   }
 }

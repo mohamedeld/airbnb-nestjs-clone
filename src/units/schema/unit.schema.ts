@@ -60,6 +60,12 @@ export class Unit {
   @Prop({ required: true, default: false })
   isActive: boolean;
 
+  @Prop()
+  ratingCount?: number;
+
+  @Prop()
+  ratingAvg?: number;
+
   @Prop({ default: false })
   isDeleted: boolean;
 

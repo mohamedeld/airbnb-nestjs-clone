@@ -6,7 +6,7 @@ import { ICurrentUser } from 'src/auth/interfaces/princapal.interace';
 import { UpdateUnitUseCase } from './usecases/update-unit.usecase';
 import { UpdateUnitDto } from './dtos/update-unit.dto';
 import { FindByIdUnitUseCase } from './usecases/find-by-id.usecase';
-import { QueryFilter } from 'mongoose';
+import { ClientSession, QueryFilter } from 'mongoose';
 import { Unit } from './schema/unit.schema';
 import { FindOneUnitUseCase } from './usecases/find-one-unit.usecase';
 import { FindAllUnitsUseCase } from './usecases/find-all-usecase';
@@ -18,6 +18,8 @@ import { ActivateUnitUseCase } from './usecases/activate-unit.usecase';
 import { DeActivateUnitUseCase } from './usecases/deactivate-unit.usecase';
 import { DeleteUnitPhotosUseCase } from './usecases/delete-unit-photos.usecase';
 import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
+import { UpdateUnitAvgRateAndCountDto } from './dtos/update-unit-avg-rate.dto';
+import { UpdateUnitAvgRateAndCountUseCase } from './usecases/update-unit-avg-count.usecase';
 
 @Injectable()
 export class UnitsService {
@@ -33,6 +35,7 @@ export class UnitsService {
     private readonly deActivateUnitUseCase: DeActivateUnitUseCase,
     private readonly deleteUnitPhotosUseCase: DeleteUnitPhotosUseCase,
     private readonly updateUnitPhotosUseCase: UpdateUnitPhotosUsCase,
+    private readonly updateUnitAvgRateAndCountUsecase: UpdateUnitAvgRateAndCountUseCase,
   ) {}
 
   async createUnit(
@@ -97,5 +100,11 @@ export class UnitsService {
     photos: Express.Multer.File[],
   ): Promise<UnitResponseDto> {
     return await this.updateUnitPhotosUseCase.execute(id, user, photos);
+  }
+  async updateUnitAvgRateAndCount(
+    body: UpdateUnitAvgRateAndCountDto,
+    session?: ClientSession,
+  ): Promise<void> {
+    await this.updateUnitAvgRateAndCountUsecase.execute(body, session);
   }
 }

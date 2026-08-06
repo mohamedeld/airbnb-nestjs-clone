@@ -37,5 +37,7 @@
   "CHECK_IN_REQUIRED": "تاريخ تسجيل الوصول مطلوب",
   "CHECK_OUT_REQUIRED": "تاريخ تسجيل المغادرة مطلوب",
   "BOOKING_CANNOT_BE_CANCELED": "لا يمكن إلغاء هذا الحجز",
-  "BOOKING_ALREADY_APPROVED": "تمت الموافقة على الحجز بالفعل"
+  "BOOKING_ALREADY_APPROVED": "تمت الموافقة على الحجز بالفعل",
+  "BOOKING_NOT_COMPLETED_REVIEW": "الحجز لم يكتمل بعد، ولا يمكنك إرسال تقييم.",
+  "GUEST_ALREADY_REVIEWED": "قام الضيف بإرسال تقييم مسبقًا."
 }

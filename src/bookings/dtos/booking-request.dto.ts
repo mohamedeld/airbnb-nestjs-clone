@@ -1,5 +1,7 @@
 import { BookingStatus } from '../enums/booking-status.enum';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { GuestReview } from '../schemas/subdocument/guest-review.schema';
+import { GuestReviewDto } from './guest-review.dto';
 
 export class BookingResponseDto {
   @ApiProperty({
@@ -77,9 +79,9 @@ export class BookingResponseDto {
   })
   cancellationReason?: string;
 
-  //   @ApiPropertyOptional({
-  //     description: 'Guest review',
-  //     type: () => GuestReviewDto,
-  //   })
-  //   guestReview?: GuestReview;
+  @ApiPropertyOptional({
+    description: 'Guest review',
+    type: () => GuestReviewDto,
+  })
+  guestReview?: GuestReview;
 }
