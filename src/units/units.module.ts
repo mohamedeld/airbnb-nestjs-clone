@@ -24,6 +24,8 @@ import { FilesUploadModule } from 'src/files-upload/files-upload.module';
 import { DeleteUnitPhotosUseCase } from './usecases/delete-unit-photos.usecase';
 import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
 import { UpdateUnitAvgRateAndCountUseCase } from './usecases/update-unit-avg-count.usecase';
+import { FindUnitReviewsUseCase } from './usecases/find-unit-reviews.usecase';
+import { UnitReviewsModule } from 'src/unit-reviews/unit-reviews.module';
 
 @Module({
   imports: [
@@ -33,6 +35,7 @@ import { UpdateUnitAvgRateAndCountUseCase } from './usecases/update-unit-avg-cou
     AppSettingsModule,
     UnitCategoriesModule,
     FilesUploadModule,
+    UnitReviewsModule,
   ],
   controllers: [UnitsController],
   providers: [
@@ -53,6 +56,7 @@ import { UpdateUnitAvgRateAndCountUseCase } from './usecases/update-unit-avg-cou
     DeleteUnitPhotosUseCase,
     UpdateUnitPhotosUsCase,
     UpdateUnitAvgRateAndCountUseCase,
+    FindUnitReviewsUseCase,
   ],
   exports: [UnitsService],
 })

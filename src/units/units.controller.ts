@@ -25,6 +25,9 @@ import { FilesInterceptor } from '@nestjs/platform-express';
 import { createValidationFactory } from 'src/common/files/files-validation-factory';
 import { FilesUploadService } from 'src/files-upload/files-upload.service';
 import { DeleteUnitPhotosDto } from './dtos/delete-unit-photos.dto';
+import { Public } from 'src/common/public.decorator';
+import { PaginationDto } from 'src/common/data-access/dto/pagination.dto';
+import { UnitReviewsDto } from './dtos/unit-reviews.dto';
 
 @Controller('units')
 export class UnitsController {
@@ -152,5 +155,13 @@ export class UnitsController {
       currentAccount?.user,
       images,
     );
+  }
+  @Public()
+  @Get('/:id/reviews')
+  async findUnitReviews(
+    @Param('id') id: string,
+    @Query() query: PaginationDto,
+  ): Promise<PaginatedResult<UnitReviewsDto>> {
+    return this.unitsService.findUnitReviews(id, query);
   }
 }

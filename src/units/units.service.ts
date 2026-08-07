@@ -20,6 +20,9 @@ import { DeleteUnitPhotosUseCase } from './usecases/delete-unit-photos.usecase';
 import { UpdateUnitPhotosUsCase } from './usecases/update-unit-photos.usecase';
 import { UpdateUnitAvgRateAndCountDto } from './dtos/update-unit-avg-rate.dto';
 import { UpdateUnitAvgRateAndCountUseCase } from './usecases/update-unit-avg-count.usecase';
+import { PaginationDto } from 'src/common/data-access/dto/pagination.dto';
+import { UnitReviewsDto } from './dtos/unit-reviews.dto';
+import { FindUnitReviewsUseCase } from './usecases/find-unit-reviews.usecase';
 
 @Injectable()
 export class UnitsService {
@@ -36,6 +39,7 @@ export class UnitsService {
     private readonly deleteUnitPhotosUseCase: DeleteUnitPhotosUseCase,
     private readonly updateUnitPhotosUseCase: UpdateUnitPhotosUsCase,
     private readonly updateUnitAvgRateAndCountUsecase: UpdateUnitAvgRateAndCountUseCase,
+    private readonly findUnitReviewsUsecase: FindUnitReviewsUseCase,
   ) {}
 
   async createUnit(
@@ -106,5 +110,12 @@ export class UnitsService {
     session?: ClientSession,
   ): Promise<void> {
     await this.updateUnitAvgRateAndCountUsecase.execute(body, session);
+  }
+
+  async findUnitReviews(
+    unitId: string,
+    query: PaginationDto,
+  ): Promise<PaginatedResult<UnitReviewsDto>> {
+    return this.findUnitReviewsUsecase.execute(unitId, query);
   }
 }
