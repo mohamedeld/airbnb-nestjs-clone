@@ -37,7 +37,7 @@ export class BookingRequestUseCase {
       body.checkIn,
       body.checkOut,
     );
-
+    console.log('bookingCalculation:', bookingCalculation);
     body.checkIn = dayjs(body.checkIn).toDate();
     body.checkOut = dayjs(body.checkOut).toDate();
     const bookingRequest = await this.bookingRepository.create({

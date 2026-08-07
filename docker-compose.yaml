@@ -2,10 +2,17 @@ services:
   mongodb:
     image: mongo:8.0
     container_name: airbnb_mongodb
+    command: mongod --replSet rs0 --bind_ip_all
     ports:
       - '27017:27017'
     volumes:
       - mongodb_data:/data/db
+    healthcheck:
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'localhost:27017'}]}) }" | mongosh --port 27017 --quiet
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z
