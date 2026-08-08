@@ -11,6 +11,7 @@ import { CustomI18nService } from 'src/i18n/custom-i18n.service';
 import { UnitsModule } from 'src/units/units.module';
 import { AddUnitFavoriteUseCase } from './usecases/add-unit-favorites.usecase';
 import { RemoveUnitFavoriteUseCase } from './usecases/remove-unit-favorites.usecase';
+import { FindUnitFavoritesUseCase } from './usecases/find-favorites.usecase';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { RemoveUnitFavoriteUseCase } from './usecases/remove-unit-favorites.usec
     CustomI18nService,
     AddUnitFavoriteUseCase,
     RemoveUnitFavoriteUseCase,
+    FindUnitFavoritesUseCase,
   ],
   controllers: [UnitFavoritesController],
 })

@@ -39,11 +39,11 @@ export class UnitFavoritesController {
     return this.unitFavoritesService.removeFavorite(unitId, principal.user);
   }
 
-  //   @Get()
-  //   async getFavorites(
-  //     @Query() query: FindUnitFavoritesDto,
-  //     @CurrentAccount() principal: IPrincipal,
-  //   ): Promise<PaginatedResult<UnitFavoriteResponseDto>> {
-  //     return this.unitFavoritesService.getFavorites(query, principal.user);
-  //   }
+  @Get()
+  async getFavorites(
+    @Query() query: FindUnitFavoritesDto,
+    @CurrentAccount() principal: IPrincipal,
+  ): Promise<PaginatedResult<UnitFavoriteResponseDto>> {
+    return this.unitFavoritesService.getFavorites(query, principal.user);
+  }
 }

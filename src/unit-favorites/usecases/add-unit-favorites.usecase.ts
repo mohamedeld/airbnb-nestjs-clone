@@ -27,7 +27,13 @@ export class AddUnitFavoriteUseCase {
       user: user?._id?.toString(),
       unit: unitId,
     });
-    if (existingFavorite) return;
+    if (existingFavorite) {
+      throw new BadRequestException(
+        this.customI18nService.translate(
+          'validation.UNIT_FAVORITE_ALREADY_EXIST',
+        ),
+      );
+    }
 
     await this.unitFavoriteRepository.create({
       user: user?._id?.toString(),

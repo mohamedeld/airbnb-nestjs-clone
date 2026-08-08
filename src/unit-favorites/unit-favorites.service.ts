@@ -5,12 +5,14 @@ import { UnitFavoriteResponseDto } from './dtos/unit-favorite-response.dto';
 import { PaginatedResult } from 'src/common/data-access';
 import { AddUnitFavoriteUseCase } from './usecases/add-unit-favorites.usecase';
 import { RemoveUnitFavoriteUseCase } from './usecases/remove-unit-favorites.usecase';
+import { FindUnitFavoritesUseCase } from './usecases/find-favorites.usecase';
 
 @Injectable()
 export class UnitFavoritesService {
   constructor(
     private readonly addUnitFavoriteUseCase: AddUnitFavoriteUseCase,
     private readonly removeUnitFavoriteUseCase: RemoveUnitFavoriteUseCase,
+    private readonly findUnitFavoritesUseCase: FindUnitFavoritesUseCase,
   ) {}
   async addFavorite(unitId: string, user: ICurrentUser): Promise<void> {
     return this.addUnitFavoriteUseCase.execute(unitId, user);
@@ -20,10 +22,10 @@ export class UnitFavoritesService {
     return this.removeUnitFavoriteUseCase.execute(unitId, user);
   }
 
-  //   async getFavorites(
-  //     query: FindUnitFavoritesDto,
-  //     user: ICurrentUser,
-  //   ): Promise<PaginatedResult<UnitFavoriteResponseDto>> {
-  //     // return this.findUnitFavoritesUseCase.execute(query, user);
-  //   }
+  async getFavorites(
+    query: FindUnitFavoritesDto,
+    user: ICurrentUser,
+  ): Promise<PaginatedResult<UnitFavoriteResponseDto>> {
+    return this.findUnitFavoritesUseCase.execute(query, user);
+  }
 }
