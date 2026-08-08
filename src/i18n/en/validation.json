@@ -39,5 +39,7 @@
   "BOOKING_CANNOT_BE_CANCELED": "Booking cannot be canceled",
   "BOOKING_ALREADY_APPROVED": "Booking already approved",
   "BOOKING_NOT_COMPLETED_REVIEW": "Booking is not completed. You cannot submit a review.",
-  "GUEST_ALREADY_REVIEWED": "Guest has already submitted a review."
+  "GUEST_ALREADY_REVIEWED": "Guest has already submitted a review.",
+  "CANNOT_ADD_OWN_UNIT_TO_FAVOURITES": "You can’t add your units to your favourites list",
+  "FAVORITE_NOT_FOUND": "Favorite not found"
 }

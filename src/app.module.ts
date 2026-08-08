@@ -31,6 +31,7 @@ import { FilesUploadModule } from './files-upload/files-upload.module';
 import { UnitsModule } from './units/units.module';
 import { BookingsModule } from './bookings/bookings.module';
 import { UnitReviewsModule } from './unit-reviews/unit-reviews.module';
+import { UnitFavoritesModule } from './unit-favorites/unit-favorites.module';
 
 @Module({
   imports: [
@@ -73,6 +74,7 @@ import { UnitReviewsModule } from './unit-reviews/unit-reviews.module';
     UnitsModule,
     BookingsModule,
     UnitReviewsModule,
+    UnitFavoritesModule,
   ],
   controllers: [],
   providers: [

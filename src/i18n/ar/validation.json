@@ -39,5 +39,7 @@
   "BOOKING_CANNOT_BE_CANCELED": "لا يمكن إلغاء هذا الحجز",
   "BOOKING_ALREADY_APPROVED": "تمت الموافقة على الحجز بالفعل",
   "BOOKING_NOT_COMPLETED_REVIEW": "الحجز لم يكتمل بعد، ولا يمكنك إرسال تقييم.",
-  "GUEST_ALREADY_REVIEWED": "قام الضيف بإرسال تقييم مسبقًا."
+  "GUEST_ALREADY_REVIEWED": "قام الضيف بإرسال تقييم مسبقًا.",
+  "CANNOT_ADD_OWN_UNIT_TO_FAVOURITES": "لا يمكنك إضافة وحداتك إلى قائمة المفضلة",
+  "FAVORITE_NOT_FOUND": "المفضلة غير موجودة"
 }
