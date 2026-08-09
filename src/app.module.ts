@@ -34,6 +34,7 @@ import { UnitReviewsModule } from './unit-reviews/unit-reviews.module';
 import { UnitFavoritesModule } from './unit-favorites/unit-favorites.module';
 import { MailModule } from './mail/mail.module';
 import { OtpModule } from './otp/otp.module';
+import { ForgetPasswordModule } from './forget-password/forget-password.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { OtpModule } from './otp/otp.module';
     UnitFavoritesModule,
     MailModule,
     OtpModule,
+    ForgetPasswordModule,
   ],
   controllers: [],
   providers: [

@@ -47,5 +47,9 @@
   "EMAIL_ALREADY_VERIFIED": "Email is already verified",
   "INVALID_OTP": "Invalid OTP",
   "OTP_EXPIRED": "OTP has expired",
-  "EMAIL_NOT_VERIFIED": "Email not verified, please verify your email first"
+  "EMAIL_NOT_VERIFIED": "Email not verified, please verify your email first",
+  "INVALID_EMAIL": "Invalid email address",
+  "INVALID_CODE": "Invalid code",
+  "CODE_ALREADY_USED": "Code already used",
+  "FAILED_RESET_PASSWORD": "Failed to reset password"
 }
