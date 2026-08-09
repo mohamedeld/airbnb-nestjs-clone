@@ -42,5 +42,6 @@
   "GUEST_ALREADY_REVIEWED": "Guest has already submitted a review.",
   "CANNOT_ADD_OWN_UNIT_TO_FAVOURITES": "You can’t add your units to your favourites list",
   "FAVORITE_NOT_FOUND": "Favorite not found",
-  "UNIT_FAVORITE_ALREADY_EXIST": "Unit is already in favorites"
+  "UNIT_FAVORITE_ALREADY_EXIST": "Unit is already in favorites",
+  "FAILED_SEND_EMAIL": "Failed to send email"
 }

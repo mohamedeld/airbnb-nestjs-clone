@@ -17,4 +17,10 @@ export const defaultEnv = (): IEnvironment => ({
   awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
   bucketName: process.env.BUCKET_NAME as string,
   minioEndpoint: process.env.MINIO_ENDPOINT as string,
+  smtpHost: process.env.SMTP_HOST as string,
+  smtpPort: Number(process.env.SMTP_PORT),
+  smtpService: process.env.SMTP_SERVICE as string,
+  smtpAuthEmail: process.env.SMTP_AUTH_EMAIL as string,
+  smtpAuthPassword: process.env.SMTP_AUTH_PASSWORD as string,
+  smtpSecure: process.env.SMTP_SECURE === 'true',
 });

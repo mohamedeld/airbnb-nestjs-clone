@@ -42,5 +42,6 @@
   "GUEST_ALREADY_REVIEWED": "قام الضيف بإرسال تقييم مسبقًا.",
   "CANNOT_ADD_OWN_UNIT_TO_FAVOURITES": "لا يمكنك إضافة وحداتك إلى قائمة المفضلة",
   "FAVORITE_NOT_FOUND": "المفضلة غير موجودة",
-  "UNIT_FAVORITE_ALREADY_EXIST": "الوحدة موجودة بالفعل في المفضلة"
+  "UNIT_FAVORITE_ALREADY_EXIST": "الوحدة موجودة بالفعل في المفضلة",
+  "FAILED_SEND_EMAIL": "فشل إرسال البريد الإلكتروني"
 }

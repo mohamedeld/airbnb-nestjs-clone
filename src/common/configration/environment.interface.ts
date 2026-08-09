@@ -11,6 +11,12 @@ export interface IEnvironment {
   awsSecretAccessKey: string;
   bucketName: string;
   minioEndpoint: string;
+  smtpHost: string;
+  smtpPort: number;
+  smtpService: string;
+  smtpAuthEmail: string;
+  smtpAuthPassword: string;
+  smtpSecure: boolean;
 }
 
 export interface ISystemAdmin {
