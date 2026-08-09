@@ -10,6 +10,13 @@ export class SendEmailDto {
   to: string;
 
   @ApiProperty({
+    description: 'Sender email address',
+    example: 'support@airbnb.com',
+  })
+  @IsString()
+  from: string;
+
+  @ApiProperty({
     description: 'Email subject',
     example: 'Welcome to Airbnb Clone',
   })

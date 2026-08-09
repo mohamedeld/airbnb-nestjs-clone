@@ -20,7 +20,7 @@ export class NodemailerEmailAdapter implements IEmailAdapter {
     this.transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
-      service: smtpService,
+      // service: smtpService,
       auth: {
         user: smtpAuthEmail,
         pass: smtpAuthPassword,
@@ -31,7 +31,7 @@ export class NodemailerEmailAdapter implements IEmailAdapter {
 
   async sendEmail(dto: SendEmailDto): Promise<void> {
     await this.transporter.sendMail({
-      from: 'support@airbnb.com',
+      from: dto.from,
       to: dto.to,
       subject: dto.subject,
       text: dto.text,
