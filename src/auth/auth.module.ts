@@ -18,6 +18,7 @@ import { RefreshTokenUseCase } from './use-cases/refresh-token.usecase';
 import { LoginAsUserUseCase } from './use-cases/login-as-user.usecase';
 import { LoginAsSystemAdminUseCase } from './use-cases/login-as-system-admin.usecase';
 import { SystemAdminsModule } from 'src/system-admins/system-admins.module';
+import { OtpModule } from 'src/otp/otp.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { SystemAdminsModule } from 'src/system-admins/system-admins.module';
       { name: RefreshToken.name, schema: RefreshTokenSchema },
     ]),
     SystemAdminsModule,
+    OtpModule,
   ],
   providers: [
     AuthService,

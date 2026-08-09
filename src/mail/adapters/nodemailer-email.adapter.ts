@@ -31,7 +31,7 @@ export class NodemailerEmailAdapter implements IEmailAdapter {
 
   async sendEmail(dto: SendEmailDto): Promise<void> {
     await this.transporter.sendMail({
-      from: dto.from,
+      from: 'support@airbnb.com',
       to: dto.to,
       subject: dto.subject,
       text: dto.text,

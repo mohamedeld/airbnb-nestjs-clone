@@ -33,6 +33,7 @@ import { BookingsModule } from './bookings/bookings.module';
 import { UnitReviewsModule } from './unit-reviews/unit-reviews.module';
 import { UnitFavoritesModule } from './unit-favorites/unit-favorites.module';
 import { MailModule } from './mail/mail.module';
+import { OtpModule } from './otp/otp.module';
 
 @Module({
   imports: [
@@ -77,6 +78,7 @@ import { MailModule } from './mail/mail.module';
     UnitReviewsModule,
     UnitFavoritesModule,
     MailModule,
+    OtpModule,
   ],
   controllers: [],
   providers: [

@@ -15,5 +15,6 @@ import { MailController } from './mail.controller';
     CustomI18nService,
   ],
   controllers: [MailController],
+  exports: [MailService],
 })
 export class MailModule {}
